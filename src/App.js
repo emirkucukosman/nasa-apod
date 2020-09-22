@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-const API_KEY = process.env.REACT_APP_NASA_API_KEY
-
 function App() {
 
   const [image, setImage] = useState(null)
@@ -10,7 +8,7 @@ function App() {
   const [error, setError] = useState(null)
 
   useEffect(() => {
-    fetch("https://api.nasa.gov/planetary/apod?api_key=" + API_KEY)
+    fetch("https://api.nasa.gov/planetary/apod?api_key=" + process.env.REACT_APP_NASA_API_KEY)
       .then(res => res.json())
       .then(data => {
         if (data.media_type === "image") {
